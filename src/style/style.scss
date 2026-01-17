@@ -60,8 +60,9 @@
     .card-id {
         position: absolute;
         top: 20px;
-        right: 20px;
         z-index: 2;
+        width:100%;
+        text-align: center;
     }
 
     .card-name {
