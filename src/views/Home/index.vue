@@ -40,10 +40,9 @@ const { getTopTitle: topTitle, getTextColor: textColor, getTextSize: textSize, g
     </div>
     <StarsBackground :home-background="homeBackground" />
     <PrizeList class="absolute left-0 top-32" />
-    
     <!-- 署名 -->
     <div class="absolute right-6 bottom-6 text-white/60 text-sm font-light tracking-wider hover:text-white/90 transition-all duration-300">
-      Design & Develop by 数字化前端团队
+    <!-- Develop by hy -->
     </div>
   </div>
 </template>
