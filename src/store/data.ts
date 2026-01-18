@@ -241,27 +241,17 @@ export const defaultImageList = [
     {
         id: '0',
         name: '小米平板',
-        url: '/images/xiaomi-pad.png',
+        url: 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1758276214.25323975.png',
     },
     {
         id: '1',
         name: '小米手环10',
-        url: '/images/xiaomi-band10.png',
+        url: 'https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202410291021_b182b87fa07f755977df3e4ff557d798.png',
     },
     {
         id: '2',
         name: '小米YU7车模',
-        url: '/images/xiaomi-yu7.png',
-    },
-    {
-        id: '3',
-        name: '小米17标准版',
-        url: '/images/xiaomi-17.png',
-    },
-    {
-        id: '4',
-        name: '小米17 Pro Max',
-        url: '/images/xiaomi-17-pro-max.png',
+        url: 'https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202504271415_c9a4e9c8b81068468ac6cbdf659c3241.png',
     },
 ]
 export const defaultPatternList = [21, 38, 55, 54, 53, 70, 87, 88, 89, 23, 40, 57, 74, 91, 92, 76, 59, 42, 25, 24, 27, 28, 29, 46, 63, 62, 61, 78, 95, 96, 97, 20, 19, 31, 48, 66, 67, 84, 101, 100, 32, 33, 93, 65, 82, 99]
