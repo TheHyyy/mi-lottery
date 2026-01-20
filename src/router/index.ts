@@ -1,4 +1,7 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
+import {
+    createRouter,
+    createWebHashHistory,
+} from 'vue-router'
 import Layout from '@/layout/index.vue'
 import i18n from '@/locales/i18n'
 import Home from '@/views/Home/index.vue'
@@ -29,7 +32,8 @@ export const configRoutes = {
                 {
                     path: 'already',
                     name: 'AlreadyPerson',
-                    component: () => import('@/views/Config/Person/PersonAlready/index.vue'),
+                    component: () =>
+                        import('@/views/Config/Person/PersonAlready/index.vue'),
                     meta: {
                         title: i18n.global.t('sidebar.winnerList'),
                         icon: 'already',
@@ -67,7 +71,8 @@ export const configRoutes = {
                 {
                     path: 'image',
                     name: 'ImageConfig',
-                    component: () => import('@/views/Config/Global/ImageConfig/index.vue'),
+                    component: () =>
+                        import('@/views/Config/Global/ImageConfig/index.vue'),
                     meta: {
                         title: i18n.global.t('sidebar.imagesManagement'),
                         icon: 'image',
@@ -76,7 +81,8 @@ export const configRoutes = {
                 {
                     path: 'music',
                     name: 'MusicConfig',
-                    component: () => import('@/views/Config/Global/MusicConfig/index.vue'),
+                    component: () =>
+                        import('@/views/Config/Global/MusicConfig/index.vue'),
                     meta: {
                         title: i18n.global.t('sidebar.musicManagement'),
                         icon: 'music',
@@ -111,6 +117,11 @@ const routes = [
                 component: Home,
             },
             {
+                path: 'number-roll',
+                name: 'NumberRoll',
+                component: () => import('@/views/NumberRoll/index.vue'),
+            },
+            {
                 path: 'demo',
                 name: 'Demo',
                 component: () => import('@/views/Demo/index.vue'),
@@ -119,7 +130,6 @@ const routes = [
         ],
     },
 ]
-const envMode = import.meta.env.MODE
 const router = createRouter({
     // 读取环境变量
     // 使用 Hash 模式避免 GitHub Pages 刷新 404 问题

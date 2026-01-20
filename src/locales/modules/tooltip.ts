@@ -4,18 +4,22 @@ export const tooltipEn = {
     noSongPlay: 'No Song to Play',
     prizeList: 'Prize List',
     addActivity: 'Add Activity',
-    downloadTemplateTip: 'After downloading the file, please fill in the data in Excel and save it in xlsx format',
+    downloadTemplateTip:
+ 'After downloading the file, please fill in the data in Excel and save it in xlsx format',
     uploadExcelTip: 'Upload the modified Excel file',
     leftClick: 'Left Click to Slice',
     toHome: 'to Home',
     resetLayout: 'This item is time-consuming and performance intensive',
-    defaultLayout: 'The default pattern setting is valid for 17 columns, please set the number of other columns yourself',
+    defaultLayout:
+ 'The default pattern setting is valid for 17 columns, please set the number of other columns yourself',
     doneCount: 'Number of winners',
     edit: 'Edit',
     delete: 'Delete',
-    timedStop: 'After the lottery begins, it will stop at a scheduled time by default, set to 0, with the unit in seconds. A value of 0 disables the scheduled stopping function',
+    timedStop:
+ 'After the lottery begins, it will stop at a scheduled time by default, set to 0, with the unit in seconds. A value of 0 disables the scheduled stopping function',
     uploadImage: 'Upload Image',
     pleaseGoto: 'Please go to',
+    numberRoll: 'Number Roll',
 }
 
 export const tooltipZhCn = {
@@ -36,6 +40,7 @@ export const tooltipZhCn = {
     timedStop: '开始抽奖过后定时停止，默认为0，单位为秒，0为关闭定时停止功能',
     uploadImage: '上传图片',
     pleaseGoto: '请先前往',
+    numberRoll: '数字滚动',
 }
 
 export const tooltip = {

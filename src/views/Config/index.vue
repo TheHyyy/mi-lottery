@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import dayjs from 'dayjs'
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
@@ -9,7 +8,6 @@ const { t } = useI18n()
 const router = useRouter()
 const route = useRoute()
 const menuList = ref<any[]>(configRoutes.children)
-const currentYear = dayjs().year()
 
 function cleanMenuList(menu: any) {
     const newList = menu

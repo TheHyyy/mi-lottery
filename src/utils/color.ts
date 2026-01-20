@@ -1,3 +1,4 @@
+/* eslint-disable regexp/no-super-linear-backtracking */
 // 判断颜色是否rgb或者rgba
 export function isRgbOrRgba(color: string) {
     return color.includes('rgb') || color.includes('rgba')
@@ -47,6 +48,8 @@ export function rgbToHex(color: string) {
         return color
     }
     // 匹配rgba或rgb格式的字符串
+    // eslint
+    // eslint-disable-next-line regexp/no-misleading-capturing-group
     const rgbaMatch = color.match(/^rgba?\((\d+),(\d+),(\d+),?(\d+(?:\.\d+)?|\.\d+)?\)$/i)
     if (!rgbaMatch) {
         throw new Error('Invalid color format')
