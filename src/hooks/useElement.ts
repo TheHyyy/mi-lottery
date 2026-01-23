@@ -73,9 +73,11 @@ export function useElementStyle(element: any, person: IPersonConfig, index: numb
 export function useElementPosition(element: any, count: number, totalCount: number, cardSize: { width: number, height: number }, windowSize: { width: number, height: number }, cardIndex: number) {
     let xTable = 0
     let yTable = 0
+    const rowHeight = cardSize.height + 60
+    const maxRowIndex = Math.floor((totalCount - 1) / 5)
     const centerPosition = {
         x: 0,
-        y: windowSize.height / 2 - cardSize.height * 0.9,
+        y: (maxRowIndex * rowHeight) / 2,
     }
     // 有一行为偶数的特殊数量
     const specialPosition = [2, 4, 7, 9]
