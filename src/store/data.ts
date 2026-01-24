@@ -129,71 +129,30 @@ export const defaultMusicList = [
 
 ]
 
-export const defaultPrizeList = <IPrizeConfig[]>[
-    {
-        id: '001',
-        name: '小米SU7车模',
-        sort: 1,
+export const defaultPrizeList = <IPrizeConfig[]>Array.from({ length: 21 }, (_, i) => {
+    const n = i + 1
+    return {
+        id: n.toString().padStart(3, '0'),
+        name: `第${n}轮`,
+        sort: n,
         isAll: false,
-        count: 10,
+        count: n === 21 ? 12 : 20,
         isUsedCount: 0,
         picture: {
             id: '2',
-            name: '小米SU7车模',
+            name: `第${n}轮`,
             url: 'https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202504271415_c9a4e9c8b81068468ac6cbdf659c3241.png',
         },
         separateCount: {
             enable: true,
             countList: [],
         },
-        desc: '小米SU7车模',
+        desc: `第${n}轮`,
         isShow: true,
         isUsed: false,
         frequency: 1,
-    },
-    {
-        id: '002',
-        name: '小米手环9Pro',
-        sort: 2,
-        isAll: false,
-        count: 5,
-        isUsedCount: 0,
-        picture: {
-            id: '1',
-            name: '小米手环9Pro',
-            url: 'https://cdn.cnbj1.fds.api.mi-img.com/nr-pub/202410291021_b182b87fa07f755977df3e4ff557d798.png',
-        },
-        separateCount: {
-            enable: false,
-            countList: [],
-        },
-        desc: '小米手环 9 PRO',
-        isShow: true,
-        isUsed: false,
-        frequency: 1,
-    },
-    {
-        id: '003',
-        name: 'Xiaomi Pad 8 Pro',
-        sort: 3,
-        isAll: false,
-        count: 3,
-        isUsedCount: 0,
-        picture: {
-            id: '0',
-            name: 'Xiaomi Pad 8 Pro',
-            url: 'https://cdn.cnbj0.fds.api.mi-img.com/b2c-shopapi-pms/pms_1758276214.25323975.png',
-        },
-        separateCount: {
-            enable: false,
-            countList: [],
-        },
-        desc: '小米平板',
-        isShow: true,
-        isUsed: false,
-        frequency: 1,
-    },
-]
+    }
+})
 export const defaultCurrentPrize = <IPrizeConfig>{
     id: '001',
     name: '小米YU7车模',
