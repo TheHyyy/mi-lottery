@@ -80,10 +80,10 @@ onMounted(() => {
       <p class="pb-8">
         {{ t('dialog.dialogSingleDrawLimit') }}
       </p>
-      <div class="flex justify-between px-3 text-center separated-number">
+      <div class="flex flex-wrap justify-start gap-x-4 gap-y-10 px-3 pt-6 text-center separated-number">
         <div
           v-for="item in props.totalNumber" :key="item"
-          class="relative flex flex-col items-center cursor-pointer"
+          class="relative flex flex-col items-center w-4 cursor-pointer"
         >
           <div
             class="absolute mb-12 text-center tooltip -top-5 hover:text-lg" :data-tip="t('tooltip.leftClick')"

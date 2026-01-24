@@ -61,7 +61,7 @@
 
     .card-id {
         position: absolute;
-        top: 20px;
+        top: 5%;
         z-index: 2;
         width:100%;
         text-align: center;
@@ -71,7 +71,7 @@
         text-align: center;
         z-index: 2;
         position: absolute;
-        top: 40px;
+        top: 10%;
         left: 0px;
         right: 0;
         font-weight: bold;
@@ -96,7 +96,7 @@
         right: 0;
         text-align: center;
         z-index: 2;
-        bottom: 15px;
+        bottom: 5%;
     }
 
     .card-avatar{
@@ -106,8 +106,8 @@
         right: 0;
         bottom: 0;
         z-index: 1;
-        width: 280px !important;
-        height: 240px !important;
+        width: 100% !important;
+        height: 60% !important;
         object-fit: cover;
     }
 }

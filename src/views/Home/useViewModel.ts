@@ -66,7 +66,7 @@ export function useViewModel() {
     const tableData = ref<any[]>([])
     const luckyTargets = ref<any[]>([])
     const luckyCardList = ref<number[]>([])
-    const luckyCount = ref(10)
+    const luckyCount = ref(20)
     const personPool = ref<IPersonConfig[]>([])
     const intervalTimer = ref<any>(null)
     const isInitialDone = ref<boolean>(false)
@@ -490,7 +490,7 @@ export function useViewModel() {
 
             return
         }
-        luckyCount.value = 10
+        luckyCount.value = 20
         // 自定义抽奖个数
 
         let leftover = currentPrize.value.count - currentPrize.value.isUsedCount
@@ -553,12 +553,26 @@ export function useViewModel() {
         rollBall(0, 1)
 
         const windowSize = { width: window.innerWidth, height: window.innerHeight }
+        const totalLuckyCount = luckyTargets.value.length
+        const totalRows = Math.ceil(totalLuckyCount / 5)
+        let scale = 2
+        if (totalRows <= 1) {
+            scale = 2
+        }
+        else if (totalRows === 2) {
+            scale = 1.5
+        }
+        else if (totalRows === 3) {
+            scale = 1.1
+        }
+        else {
+            scale = 1.15
+        }
         luckyTargets.value.forEach((person: IPersonConfig, index: number) => {
             const cardIndex = selectCard(luckyCardList.value, tableData.value.length, person.id)
             luckyCardList.value.push(cardIndex)
-            const totalLuckyCount = luckyTargets.value.length
             const item = objects.value[cardIndex]
-            const { xTable, yTable } = useElementPosition(item, rowCount.value, totalLuckyCount, { width: cardSize.value.width * 2, height: cardSize.value.height * 2 }, windowSize, index)
+            const { xTable, yTable } = useElementPosition(item, rowCount.value, totalLuckyCount, { width: cardSize.value.width * scale, height: cardSize.value.height * scale }, windowSize, index)
             new TWEEN.Tween(item.position)
                 .to({
                     x: xTable,
@@ -567,7 +581,7 @@ export function useViewModel() {
                 }, 1200)
                 .easing(TWEEN.Easing.Exponential.InOut)
                 .onStart(() => {
-                    item.element = useElementStyle(item.element, person, cardIndex, patternList.value, patternColor.value, luckyColor.value, { width: cardSize.value.width * 2, height: cardSize.value.height * 2 }, textSize.value * 2, 'lucky')
+                    item.element = useElementStyle(item.element, person, cardIndex, patternList.value, patternColor.value, luckyColor.value, { width: cardSize.value.width * scale, height: cardSize.value.height * scale }, textSize.value * scale, 'lucky')
                 })
                 .start()
                 .onComplete(() => {

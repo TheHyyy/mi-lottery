@@ -67,41 +67,51 @@ export function useElementStyle(element: any, person: IPersonConfig, index: numb
 
 /**
  * @description 设置抽中卡片的位置
- * 最少一个，最大十个
+ * 最少一个，最大二十个
  */
-// TODO:不超过5个时：单行排列；超过5个时，6：上3下3；7：上3下4；8：上3下5；9：上4下5；10：上5下5
 export function useElementPosition(element: any, count: number, totalCount: number, cardSize: { width: number, height: number }, windowSize: { width: number, height: number }, cardIndex: number) {
     let xTable = 0
     let yTable = 0
-    const rowHeight = cardSize.height + 60
-    const maxRowIndex = Math.floor((totalCount - 1) / 5)
+    const gapX = cardSize.width * 0.36
+    const gapY = cardSize.height * 0.08
+    const rowHeight = cardSize.height + gapY
+    const itemsPerRow = 5
+    const maxRowIndex = Math.floor((totalCount - 1) / itemsPerRow)
     const centerPosition = {
         x: 0,
         y: (maxRowIndex * rowHeight) / 2,
     }
-    // 有一行为偶数的特殊数量
-    const specialPosition = [2, 4, 7, 9]
-    // 不包含特殊值的 和 分两行中第一行为奇数值的
-    if (!specialPosition.includes(totalCount) || (totalCount > 5 && cardIndex < 5)) {
-        const index = cardIndex % 5
-        if (index === 0) {
+
+    const currentRow = Math.floor(cardIndex / itemsPerRow)
+    const isLastRow = currentRow === maxRowIndex
+    const lastRowItems = totalCount % itemsPerRow === 0 ? itemsPerRow : totalCount % itemsPerRow
+
+    // Check if we should use special layout (centered even number) for this row
+    // We only apply special layout to the last row if it has even number of items
+    const isSpecialLayout = isLastRow && (lastRowItems % 2 === 0)
+    const indexInRow = cardIndex % itemsPerRow
+    const unitWidth = cardSize.width + gapX
+
+    if (!isSpecialLayout) {
+        if (indexInRow === 0) {
             xTable = centerPosition.x
-            yTable = centerPosition.y - Math.floor(cardIndex / 5) * (cardSize.height + 60)
+            yTable = centerPosition.y - currentRow * rowHeight
         }
         else {
-            xTable = index % 2 === 0 ? Math.ceil(index / 2) * (cardSize.width + 100) : -Math.ceil(index / 2) * (cardSize.width + 100)
-            yTable = centerPosition.y - Math.floor(cardIndex / 5) * (cardSize.height + 60)
+            xTable = indexInRow % 2 === 0 ? Math.ceil(indexInRow / 2) * unitWidth : -Math.ceil(indexInRow / 2) * unitWidth
+            yTable = centerPosition.y - currentRow * rowHeight
         }
     }
     else {
-        const index = cardIndex % 5
-        if (index === 0) {
-            xTable = centerPosition.x + (cardSize.width + 100) / 2
-            yTable = centerPosition.y - Math.floor(cardIndex / 5) * (cardSize.height + 60)
+        if (indexInRow === 0) {
+            xTable = centerPosition.x + unitWidth / 2
+            yTable = centerPosition.y - currentRow * rowHeight
         }
         else {
-            xTable = index % 2 === 0 ? Math.ceil(index / 2) * (cardSize.width + 100) + (cardSize.width + 100) / 2 : -(Math.ceil(index / 2) * (cardSize.width + 100)) + (cardSize.width + 100) / 2
-            yTable = centerPosition.y - Math.floor(cardIndex / 5) * (cardSize.height + 60)
+            xTable = indexInRow % 2 === 0
+                ? Math.ceil(indexInRow / 2) * unitWidth + unitWidth / 2
+                : -(Math.ceil(indexInRow / 2) * unitWidth) + unitWidth / 2
+            yTable = centerPosition.y - currentRow * rowHeight
         }
     }
     return { xTable, yTable }
